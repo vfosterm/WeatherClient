@@ -28,18 +28,6 @@ def get_city_code(country_code):
             print("ERROR: Invalid City")
 
 
-def convert_temp(temp, scale):
-    # convert fahrenheit to a real unit
-    try:
-        if scale == 'F':
-            temperature = (temp-32)*0.5556
-            return format(temperature, '.0f')
-        elif scale == 'C':
-            return temp
-    except TypeError:
-        return temp
-
-
 def get_country_code():
     # check if country is valid using pycountry
     code = None
@@ -96,6 +84,18 @@ def convert_to_int(temp):
     try:
         return int(temp)
     except ValueError:
+        return temp
+
+
+def convert_temp(temp, scale):
+    # convert fahrenheit to a real unit
+    try:
+        if scale == 'F':
+            temperature = (temp-32)*0.5556
+            return format(temperature, '.0f')
+        elif scale == 'C':
+            return temp
+    except TypeError:
         return temp
 
 
