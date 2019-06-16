@@ -72,7 +72,7 @@ def get_weather_from_html(html):
     scale = soup.find(class_='wu-unit-temperature').find(class_='wu-label').get_text().strip()
     temp_hi = soup.find(class_='condition-data').find(class_='hi').get_text().strip().strip('°')
     temp_lo = soup.find(class_='condition-data').find(class_='lo').get_text().strip().strip('°')
-    feel = soup.find(class_='feels-like').find(class_='temp').get_text().strip('°')
+    feel = soup.find(class_='feels-like').find(class_='temp').get_text().strip().strip('°')
     report = WeatherReport(location=loc, condition=condition, temp=convert_to_int(temp), temp_hi=convert_to_int(temp_hi),
                            temp_lo=convert_to_int(temp_lo), feel=convert_to_int(feel), scale=scale)
 
